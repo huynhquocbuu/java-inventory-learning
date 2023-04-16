@@ -6,15 +6,15 @@ import java.sql.*;
 public class AppRunner {
 	public static void main(String[] args) throws SQLException {
 		System.out.println("Hello ---------jdbc-------mysql------");
-		String databaseUrl = "jdbc:mysql://localhost:3306/jdbc-test";
+		String databaseUrl = "jdbc:mysql://localhost:3306/jdbc-test?autoReconnect=true&useSSL=false";
 		String databaseUser = "root";
 		String password = "Password123";
-		String driverDb = "com.mysql.cj.jdbc.Driver";
+		String driverDb = "com.mysql.jdbc.Driver";
 		Connection connection = null;
 		try {
 			Class.forName(driverDb);
 			 connection = DriverManager.getConnection(databaseUrl, databaseUser, password);
-			 insert(connection);
+			 //insert(connection);
 			 
 			print(connection);
 			

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 16, 2023, 8:53:05 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="hibernate_sample" name="model.Category" optimistic-lock="none" table="category">
+        <id name="id" type="int">
+            <column name="ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="products" table="product">
+            <key>
+                <column name="CATE_ID" not-null="true"/>
+            </key>
+            <one-to-many class="model.Product"/>
+        </set>
+    </class>
+</hibernate-mapping>
